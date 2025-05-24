@@ -1,6 +1,6 @@
 let UserScore = 0;
 let ComScore = 0;
-
+let message = document.querySelector("#msg");
 const choices = document.querySelectorAll(".choice"); 
 
 const drawGame = () => {
@@ -13,12 +13,16 @@ const compgenChoice = () => {
   return options[randidx];
 };
 
-const winner = (UserWin) => {
+const winner = (UserWin,userChoice,comchoice) => {
   if (UserWin) {
     console.log("You win!");
+    message.innerText = `You win ! your ${userChoice} beats ${comchoice}`;
+    message.style.backgroundColor = "green"; // or any color you want
     UserScore++;
   } else {
     console.log("Computer wins!");
+    message.innerText = `You lose !  ${userChoice} beaten by ${comchoice}`;
+    message.style.backgroundColor = "red"; // or any color you want
     ComScore++;
   }
   document.querySelector("#yscore").textContent = UserScore;
@@ -41,7 +45,7 @@ const playgames = (userChoice) => {
     } else if (userChoice === "scissors") {
       UserWin = comchoice === "rock" ? false : true;
     }
-    winner(UserWin);
+    winner(UserWin,userChoice,comchoice);
   }
 };
 

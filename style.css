@@ -95,4 +95,5 @@ img {
   letter-spacing: 0.5px;
   font-weight: bold;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+   border-radius: 10px;
 }
